@@ -1,0 +1,20 @@
+version: '3.9'
+
+networks:
+  icade_test_network:
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./infrastructure/server/Dockerfile
+    container_name: '${APP_NAME}-server'
+    ports:
+      - '${APP_PORT}:80'
+    working_dir: /var/www/html
+    volumes:
+      - ./project:/var/www/html
+      - ./infrastructure/server/apache/sites-enabled:/etc/apache2/sites-enabled
+      - ./infrastructure/server/php/php.ini:/usr/local/etc/php/conf.d/extra-php-config.ini
+    networks:
+      - icade_test_network

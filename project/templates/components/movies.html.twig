@@ -1,0 +1,32 @@
+{% set count = 1 %}
+    {% for movie in movies %}
+        {% if count == 1 %}
+            <div class="movie-featured"
+                 style="background: center / cover url('https://image.tmdb.org/t/p/original{{ movie.backdropPath }}')">
+                <div class="movie-featured poster">
+                    <img src="https://image.tmdb.org/t/p/w200{{ movie.posterPath }}" alt="poster">
+                </div>
+                <h1 class="movie-featured title">{{ movie.title }}</h1>
+                <button data-url="{{ path('app_movie_details', {id: movie.id})}}" type="button"
+                        class="show-details btn btn-primary float-right">More
+                    details...
+                </button>
+            </div>
+        {% else %}
+            <div class="row movie-item">
+                <div class="col-3 poster">
+                    <img src="https://image.tmdb.org/t/p/w300{{ movie.posterPath }}" alt="poster">
+                </div>
+                <div class="col-9 movie-info">
+                    <h2>{{ movie.title }}</h2>
+                    <h5>Rate: {{ movie.voteAverage }}/10 ({{ movie.voteCount }} votes)</h5>
+                    <h5>Release date: {{ movie.releaseDate }}</h5>
+                    <p>{{ movie.overview }}</p>
+                    <button data-url="{{ path('app_movie_details', {id: movie.id}) }}"
+                            type="button" class="show-details btn btn-primary float-right">More details...
+                    </button>
+                </div>
+            </div>
+        {% endif %}
+        {% set count = count + 1 %}
+    {% endfor %}

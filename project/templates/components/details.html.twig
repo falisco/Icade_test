@@ -1,0 +1,8 @@
+{{ render(controller(
+    'App\\Movie\\Controller\\TrailerController::__invoke',{ 'id': details.id }
+)) }}
+
+<h2>{{ details.title }}</h2>
+<h5>Rate: {{ details.voteAverage }}/10 ({{ details.voteCount }} votes)</h5>
+<h5>Release date: {{ details.releaseDate }}</h5>
+<p>{{ details.overview }}</p>

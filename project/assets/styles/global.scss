@@ -1,0 +1,53 @@
+@import "~bootstrap/scss/bootstrap";
+
+.movie-item {
+  margin: 15px 0;
+}
+
+.movie-item .poster {
+  padding-left: 0;
+}
+
+.movie-item .poster img {
+  width: 100%;
+}
+
+.genre-checkbox {
+  padding: 10px 40px;
+}
+
+.movie-featured {
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+
+.movie-featured .poster {
+  position: absolute;
+  width: 200px;
+  bottom: 30px;
+  left: 30px;
+  height: auto;
+}
+
+.movie-featured .title {
+  height: auto;
+  position: absolute;
+  bottom: 30px;
+  left: 250px;
+  color: #fff;
+}
+
+.movie-featured button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+.float-right {
+  float: right
+}
+
+.video-wrapper iframe {
+  width: 100%;
+}

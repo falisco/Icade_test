@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Test Wemovies {% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+{{ include('components/header.html.twig') }}
+<main class="container">
+    <div class="row">
+        <div class="col-md-3 bg-light">
+            {{ render(controller(
+                'App\\Genre\\Controller\\ListController::__invoke'
+            )) }}
+        </div>
+        <div class="col-md-9 movies-container">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="movie-details">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+<script>
+    var route_genre = "{{ path('app_movie_genre')|escape('js') }}";
+</script>
+</body>
+</html>

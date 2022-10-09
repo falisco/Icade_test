@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ render(controller(
+        'App\\Movie\\Controller\\WithGenreController::__invoke'
+    )) }}
+{% endblock body %}
